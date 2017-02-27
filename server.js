@@ -1,7 +1,6 @@
 var WebSocketServer = require("ws").Server;
 var wsServer = new WebSocketServer({port:8080});
 console.log("running script on 8080");
-console.log(process.env.PORT);
 wsServer.on("connection", function (ws) {
     console.log("Connection established!");
     ws.send("Connection established!");
