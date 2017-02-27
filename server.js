@@ -7,13 +7,14 @@ wsServer.on("connection", function (ws) {
     ws.send("Connection established!");
     ws.on("message", function (msg) {
         if(/ping/i.test(msg)){
+            console.log("Received PING text:", msg);
             ws.send("PONG! CRAIG NOLAN");
         }
         else {
+            console.log("No PING text recieved, instead got:", msg);
             ws.send("No PING message recieved");
         }
 
-        console.log("Received:", msg);
     });
 
     ws.on("close", function () {
